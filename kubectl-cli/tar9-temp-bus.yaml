@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: temp-bus
+  namespace: finance-ido
+spec:
+ containers:
+ - name: temp-bus
+   image: redis:alpine
+   
+      
+    
+
+  
