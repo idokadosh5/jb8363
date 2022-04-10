@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: use-pvspec-ido
+ creationTimestamp: null
+ labels:
+  run: use-pv
+spec:
+  volumes:
+    - name: pv1-storage
+      persistentVolumeClaim:
+        claimName: pv-1-claim
+  containers:
+  - name: use-pv
+    image: nginx
+  #  resources: {}
+    volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: pv1-storage
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
